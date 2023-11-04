@@ -1,12 +1,14 @@
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 export default {
-  roots: ['<rootDir>/src/__tests__/'],
-  testEnvironment: 'jsdom',
+  preset: 'ts-jest',
+  testPathIgnorePatterns: ['<rootDir>/node_modules/'],
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  // roots: ['<rootDir>/src/__tests__/'],
+  transform: { '^.+\\.(ts|tsx)$': ['ts-jest'] },
   moduleNameMapper: {
     '\\.(css|less|svg)$': 'identity-obj-proxy',
     '@/(.*)$': '<rootDir>/src/$1', // @ <= alias path
   },
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
-  rootDir: '.',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 }

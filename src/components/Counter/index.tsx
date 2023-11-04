@@ -3,7 +3,7 @@ interface ICounter {
 }
 
 const Counter = ({ count }: ICounter) => {
-  return <h1 className="counter">{count}</h1>
+  return <div className="counter">{count}</div>
 }
 
 export default Counter

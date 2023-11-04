@@ -1,11 +1,10 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import Button from '@/components/Button'
 
-test('Button 컴포넌트 테스트', () => {
-  const btnText = 'Test'
-  const ButtonEle = render(<Button text={btnText} />)
-  const btnType = typeof Number(ButtonEle.getByText(btnText))
-  expect(btnType).toBe('number')
+test('Button 컴포넌트 렌더링 테스트', () => {
+  render(<Button text="Test" />)
+  const btnEle = screen.getByRole('button')
+  expect(btnEle).toBeInTheDocument()
 })
 
 test('Button 이벤트 클릭 테스트', () => {
